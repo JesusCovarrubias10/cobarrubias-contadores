@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Covarrubias Contadores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(to right, #e4e0da, #f8f6f3);
+      text-align: center;
+      padding: 80px 20px 60px;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      animation: fadeInHeader 1.2s ease-in-out both;
+      color: white;
+    }
+    @keyframes fadeInHeader {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header img {
+      width: 100px;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      animation: slideIn 1s ease forwards;
+    }
+    header p {
+      font-size: 1.2rem;
+      animation: fadeIn 2s ease-in;
+    }
+    nav {
+      background: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #222;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #0066cc;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeInSection 1s ease-in-out;
+    }
+    @keyframes fadeInSection {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #003366;
+    }
+    .services, .service-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service, .service-image-card {
+      background: #f9f9f9;
+      padding: 25px;
+      border-radius: 14px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+    .service:hover, .service-image-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+    .service i, .service-image-card i {
+      font-size: 2.5rem;
+      color: #0066cc;
+      margin-bottom: 15px;
+      animation: floatIcon 2s infinite ease-in-out;
+    }
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #005bb5;
+    }
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .image-banner {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      animation: fadeIn 1.2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .services, .service-images {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      nav div:first-child {
+        margin-bottom: 10px;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .carousel .service {
+      flex: 0 0 300px;
+      scroll-snap-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logooo.jpg" alt="Logo Covarrubias Contadores">
+    <h1>Covarrubias Contadores</h1>
+    <p>Comprometidos con la excelencia contable desde 1980</p>
+  </header>
+  <section>
+    <h2>Nuestros Servicios</h2>
+    <div class="services">
+      <div class="service"><i class="fas fa-calculator"></i><h3>Contabilidad Integral</h3></div>
+      <div class="service"><i class="fas fa-file-alt"></i><h3>Trámites Fiscales</h3></div>
+      <div class="service"><i class="fas fa-user-tie"></i><h3>Nómina</h3></div>
+      <div class="service"><i class="fas fa-chart-line"></i><h3>Asesoría Estratégica</h3></div>
+    </div>
+  </section>
+  <section>
+    <h2>Conoce nuestros servicios</h2>
+    <div class="service-images">
+      <div class="service-image-card"><i class="fas fa-chart-pie"></i><h3>Finanzas Empresariales</h3><img class="image-banner" src="https://source.unsplash.com/400x250/?finance" alt="Finanzas"></div>
+      <div class="service-image-card"><i class="fas fa-file-invoice-dollar"></i><h3>Declaraciones SAT</h3><img class="image-banner" src="https://source.unsplash.com/400x250/?tax" alt="SAT"></div>
+      <div class="service-image-card"><i class="fas fa-users-cog"></i><h3>Gestión de Nómina</h3><img class="image-banner" src="https://source.unsplash.com/400x250/?payroll" alt="Nómina"></div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Covarrubias Contadores. Todos los derechos reservados.</p>
+  </footer>
+  <a href="https://wa.me/526421250323" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</body>
+</html>
